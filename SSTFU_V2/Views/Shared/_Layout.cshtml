@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>@ViewData["Title"] - SSTFU_V2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="~/Assets/fonts/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="~/css/Simple-Slider.css">
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="~/js/agency.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+
+    <script src="~/js/Simple-Slider.js"></script>
+    
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="color: var(--blue);">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="font-family: Aldrich, sans-serif;">SPORT EQUIPMENT&nbsp;</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">точки выдачи</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">о нас</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">услуги</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">контакты</a></li>
+
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Account" asp-action="Index">лИЧНЫЙ КАБИНЕТ</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Account" asp-action="Logout">Выход</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-controller="Account" asp-action="Login">
+                                    <input type="submit" class="btn btn-outline-warning btn-lg" value="Авторизация через ЕСИА" />
+                                </form>
+                            </li>
+
+                        }
+                    }
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+
+<script src="~/js/agency.js"></script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

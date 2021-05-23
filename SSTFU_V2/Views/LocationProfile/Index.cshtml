@@ -1,0 +1,117 @@
+﻿@model SSTFU_V2.Models.ViewModels.LocationProfileViewModel
+@if (Model.TypeMarker == 0)
+{
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Профиль спортивного объекта</h3>
+                    <div class="row mb-3">
+                        <div class="col-lg-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center shadow">
+                                    <img class="rounded-circle mb-3 mt-4" src="~/Assets/DEV/STADION.jpg" width="160" height="160" />
+                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Сменить фото</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-primary shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header py-3">
+                                            <p class="text-primary m-0 font-weight-bold">Паспорт объекта</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group" style="height: 15px;"><label for="username"><strong>Название</strong></label></div><label style="height: 16px;">@Model.sportObject.Name</label>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group" style="height: 15px;"><label for="email" style="height: 14px;"><strong>Адрес</strong><br></label></div><label>@Model.sportObject.Address</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group" style="height: 15px;"><label for="first_name"><strong>Категория</strong><br></label></div>
+                                                        @if (Model.sportObject.ObjectCategory != null && !String.IsNullOrWhiteSpace(Model.sportObject.ObjectCategory.Name))
+                                                        {
+                                                        <label class="d-block" style="height: 21px;">
+                                                        @Model.sportObject.ObjectCategory.Name
+                                                         </label>
+                                                        }
+                else
+                {
+                                                    <label class="d-block" style="height: 21px;">
+                                                        Не указана
+                                                    </label>
+                }
+                                                        <label for="first_name"><strong>Вместимость</strong></label><label class="d-block">@Model.sportObject.MaxPerson</label>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group" style="height: 15px;"><label for="last_name"><strong>Время аренды</strong></label></div><label class="d-block">От @Model.sportObject.MinRentalTime до @Model.sportObject.MaxRentalTime @Model.MinMaxUnitTypeToString[Model.sportObject.MaxMinRentalUnitsType]</label><label for="first_name"><strong>Статус объекта</strong><br></label><label class="d-block">@Model.FreeStatus</label>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-5">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">Описание объекта</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form>
+                                        <div class="form-group"><label for="signature"><br></label><textarea disabled class="form-control" id="signature" rows="4" name="signature">@Model.sportObject.Description</textarea></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><button class="btn btn-primary btn-block" type="button">ЗАКАЗАТЬ</button>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+
+</body>
+}
+else
+{
+}
